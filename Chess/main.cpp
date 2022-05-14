@@ -51,6 +51,13 @@ public:
     }
 };
 
+class King : Piece{
+public:
+    void move(){
+        return;
+    }
+};
+
 std::vector<std::vector<Piece>>board;
 
 int main(int argc, const char * argv[]) {

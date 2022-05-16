@@ -73,7 +73,7 @@ std::unique_ptr<Piece> board[8][8];
 int main(int argc, const char * argv[]) {
     // insert code here...
     int turn = 0;
-    board[0][0] = std::move(std::make_unique<Pawn>(1));
+    board[0][0] = std::make_unique<Pawn>(1);
     std::cout<<board[0][0]->getside()<<std::endl;
     std::cout << "New Chess Game!\n";
     return 0;

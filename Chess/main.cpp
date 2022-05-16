@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <memory>
 
 class Piece{
 public:
@@ -19,15 +20,16 @@ public:
         
     }
 public:
-    int side;
+    int side =0;
 };
 
 class Pawn : public Piece{
 public:
     Pawn(int side_in) : Piece(side_in){}
-    void move(){
+    void move() override {
         return;
     }
+    ~Pawn(){}
 };
 
 class Knight: public Piece{
@@ -66,12 +68,13 @@ public:
     }
 };
 
-std::vector<std::vector<Piece>>board(8, std::vector<Piece>(8));
+std::unique_ptr<Piece> board[8][8];
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     int turn = 0;
-    board[0][0] = Pawn(1);
+    board[0][0] = std::move(std::make_unique<Pawn>(1));
+    std::cout<<board[0][0]->getside()<<std::endl;
     std::cout << "New Chess Game!\n";
     return 0;
 }

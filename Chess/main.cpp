@@ -70,10 +70,14 @@ public:
 
 std::unique_ptr<Piece> board[8][8];
 
+void init(){
+    board[0][0] = std::make_unique<Pawn>(1);
+}
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     int turn = 0;
-    board[0][0] = std::make_unique<Pawn>(1);
+    init();
     std::cout<<board[0][0]->getside()<<std::endl;
     std::cout << "New Chess Game!\n";
     return 0;

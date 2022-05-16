@@ -10,14 +10,21 @@
 
 class Piece{
 public:
+    Piece(int side_in) : side(side_in){}
     virtual void move() = 0;
+    int getside(){
+        return side;
+    }
     virtual ~Piece(){
         
     }
+public:
+    int side;
 };
 
 class Pawn : public Piece{
 public:
+    Pawn(int side_in) : Piece(side_in){}
     void move(){
         return;
     }
@@ -53,6 +60,7 @@ public:
 
 class King : public Piece{
 public:
+    
     void move(){
         return;
     }
@@ -63,7 +71,7 @@ std::vector<std::vector<Piece>>board(8, std::vector<Piece>(8));
 int main(int argc, const char * argv[]) {
     // insert code here...
     int turn = 0;
-    board[0][0] = Pawn();
+    board[0][0] = Pawn(1);
     std::cout << "New Chess Game!\n";
     return 0;
 }

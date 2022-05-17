@@ -70,6 +70,9 @@ public:
 
 std::unique_ptr<Piece> board[8][8];
 
+
+//White is side 1, black is side 0
+//Board is going to be white at the bottom and black on top
 void init(){
     board[0][0] = std::make_unique<Pawn>(1);
 }

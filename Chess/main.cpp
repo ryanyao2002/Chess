@@ -33,6 +33,7 @@ public:
 
 class Knight: public Piece{
 public:
+    Knight(int side_in) : Piece(side_in){}
     int move() override {
         return 0;
     }

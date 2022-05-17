@@ -19,7 +19,7 @@ public:
     virtual ~Piece(){
         
     }
-public:
+protected:
     int side =0;
 };
 

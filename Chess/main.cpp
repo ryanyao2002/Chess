@@ -11,8 +11,12 @@
 
 class Piece{
 public:
-    Piece(int side_in) : side(side_in){}
+    Piece(int side_in, bool king_in) : side(side_in), king(king_in){}
     virtual int move() = 0;
+    virtual void flood(int board[8][8]);
+    bool isKing(){
+        return king;
+    }
     int getside(){
         return side;
     }
@@ -21,11 +25,12 @@ public:
     }
 protected:
     int side =0;
+    bool king = false;
 };
 
 class Pawn : public Piece{
 public:
-    Pawn(int side_in) : Piece(side_in){}
+    Pawn(int side_in) : Piece(side_in, false){}
     int move() override {
         return 0;
     }
@@ -33,7 +38,7 @@ public:
 
 class Knight: public Piece{
 public:
-    Knight(int side_in) : Piece(side_in){}
+    Knight(int side_in) : Piece(side_in, false){}
     int move() override {
         return 0;
     }

@@ -13,7 +13,7 @@ class Piece{
 public:
     Piece(int side_in, bool king_in) : side(side_in), king(king_in){}
     virtual int move() = 0;
-    virtual void flood(int board[8][8]);
+    virtual void flood(std::vector<std::vector<int>>&board) = 0;
     bool isKing(){
         return king;
     }
@@ -24,7 +24,7 @@ public:
         
     }
 protected:
-    int side =0;
+    int side = 0;
     bool king = false;
 };
 
@@ -34,6 +34,7 @@ public:
     int move() override {
         return 0;
     }
+    void flood(std::vector<std::vector<int>>&board) override {}
 };
 
 class Knight: public Piece{
@@ -42,6 +43,7 @@ public:
     int move() override {
         return 0;
     }
+    void flood(std::vector<std::vector<int>>&board) override {}
 };
 
 class Rook: public Piece{
@@ -49,6 +51,7 @@ public:
     int move() override {
         return 0;
     }
+    void flood(std::vector<std::vector<int>>&board) override {}
 };
 
 class Bishop : public Piece{
@@ -56,6 +59,7 @@ public:
     int move() override {
         return 0;
     }
+    void flood(std::vector<std::vector<int>>&board) override {}
 };
 
 class Queen : public Piece{
@@ -63,6 +67,7 @@ public:
     int move() override {
         return 0;
     }
+    void flood(std::vector<std::vector<int>>&board) override {}
 };
 
 class King : public Piece{
@@ -71,6 +76,7 @@ public:
     int move() override {
         return 0;
     }
+    void flood(std::vector<std::vector<int>>&board) override {}
 };
 
 std::unique_ptr<Piece> board[8][8];
@@ -86,7 +92,7 @@ void init(){
     }
     for(int i = 0; i < 8; i++){
         board[6][i] = std::make_unique<Pawn>(1);
-        board[1][i] = std::make_unique<Pawn>(1);
+        board[1][i] = std::make_unique<Pawn>(0);
     }
 }
 

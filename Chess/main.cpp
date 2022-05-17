@@ -74,7 +74,10 @@ std::unique_ptr<Piece> board[8][8];
 //White is side 1, black is side 0
 //Board is going to be white at the bottom and black on top
 void init(){
-    board[0][0] = std::make_unique<Pawn>(1);
+    for(int i = 0; i < 8; i++){
+        board[6][i] = std::make_unique<Pawn>(1);
+        board[1][i] = std::make_unique<Pawn>(1);
+    }
 }
 
 int main(int argc, const char * argv[]) {

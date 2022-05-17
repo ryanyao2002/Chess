@@ -12,7 +12,7 @@
 class Piece{
 public:
     Piece(int side_in) : side(side_in){}
-    virtual void move() = 0;
+    virtual int move() = 0;
     int getside(){
         return side;
     }
@@ -26,45 +26,44 @@ protected:
 class Pawn : public Piece{
 public:
     Pawn(int side_in) : Piece(side_in){}
-    void move() override {
-        return;
+    int move() override {
+        return 0;
     }
-    ~Pawn(){}
 };
 
 class Knight: public Piece{
 public:
-    void move(){
-        return;
+    int move(){
+        return 0;
     }
 };
 
 class Rook: public Piece{
 public:
-    void move(){
-        return;
+    int move(){
+        return 0;
     }
 };
 
 class Bishop : public Piece{
 public:
-    void move(){
-        return;
+    int move(){
+        return 0;
     }
 };
 
 class Queen : public Piece{
 public:
-    void move(){
-        return;
+    int move(){
+        return 0;
     }
 };
 
 class King : public Piece{
 public:
     
-    void move(){
-        return;
+    int move(){
+        return 0;
     }
 };
 
@@ -84,7 +83,7 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     int turn = 0;
     init();
-    std::cout<<board[0][0]->getside()<<std::endl;
+    std::cout<<board[6][0]->getside()<<std::endl;
     std::cout << "New Chess Game!\n";
     return 0;
 }

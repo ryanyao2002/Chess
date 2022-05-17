@@ -33,28 +33,28 @@ public:
 
 class Knight: public Piece{
 public:
-    int move(){
+    int move() override {
         return 0;
     }
 };
 
 class Rook: public Piece{
 public:
-    int move(){
+    int move() override {
         return 0;
     }
 };
 
 class Bishop : public Piece{
 public:
-    int move(){
+    int move() override {
         return 0;
     }
 };
 
 class Queen : public Piece{
 public:
-    int move(){
+    int move() override {
         return 0;
     }
 };
@@ -62,7 +62,7 @@ public:
 class King : public Piece{
 public:
     
-    int move(){
+    int move() override {
         return 0;
     }
 };
@@ -73,6 +73,11 @@ std::unique_ptr<Piece> board[8][8];
 //White is side 1, black is side 0
 //Board is going to be white at the bottom and black on top
 void init(){
+    for(int i = 0; i < 8; i++){
+        for(int j = 0; j < 8; j++){
+            board[i][j] = nullptr;
+        }
+    }
     for(int i = 0; i < 8; i++){
         board[6][i] = std::make_unique<Pawn>(1);
         board[1][i] = std::make_unique<Pawn>(1);

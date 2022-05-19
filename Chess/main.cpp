@@ -57,6 +57,7 @@ public:
 
 class Bishop : public Piece{
 public:
+    Bishop(int side_in) : Piece(side_in, false){}
     int move() override {
         return 0;
     }

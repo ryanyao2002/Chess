@@ -48,6 +48,7 @@ public:
 
 class Rook: public Piece{
 public:
+    Rook(int side_in) : Piece(side_in, false){}
     int move() override {
         return 0;
     }

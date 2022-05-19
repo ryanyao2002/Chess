@@ -66,6 +66,7 @@ public:
 
 class Queen : public Piece{
 public:
+    Queen(int side_in) : Piece(side_in, false){}
     int move() override {
         return 0;
     }

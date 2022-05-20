@@ -97,6 +97,8 @@ void init(){
         board[1][i] = std::make_unique<Pawn>(1);
         board[6][i] = std::make_unique<Pawn>(0);
     }
+    board[0][4] = std::make_unique<King>(1);
+    board[7][4] = std::make_unique<King>(0);
 }
 
 int main(int argc, const char * argv[]) {

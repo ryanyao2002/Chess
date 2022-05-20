@@ -40,7 +40,7 @@ public:
 class Knight: public Piece{
 public:
     Knight(int side_in) : Piece(side_in, false){}
-    int move() override {
+    int move(int i, int j) override {
         return 0;
     }
     void flood(std::vector<std::vector<int>>&board) override {}
@@ -49,7 +49,7 @@ public:
 class Rook: public Piece{
 public:
     Rook(int side_in) : Piece(side_in, false){}
-    int move() override {
+    int move(int i, int j) override {
         return 0;
     }
     void flood(std::vector<std::vector<int>>&board) override {}
@@ -58,7 +58,7 @@ public:
 class Bishop : public Piece{
 public:
     Bishop(int side_in) : Piece(side_in, false){}
-    int move() override {
+    int move(int i, int j) override {
         return 0;
     }
     void flood(std::vector<std::vector<int>>&board) override {}
@@ -67,7 +67,7 @@ public:
 class Queen : public Piece{
 public:
     Queen(int side_in) : Piece(side_in, false){}
-    int move() override {
+    int move(int i, int j) override {
         return 0;
     }
     void flood(std::vector<std::vector<int>>&board) override {}
@@ -76,7 +76,7 @@ public:
 class King : public Piece{
 public:
     King(int side_in) : Piece(side_in, false){}
-    int move() override {
+    int move(int i, int j) override {
         return 0;
     }
     void flood(std::vector<std::vector<int>>&board) override {}
@@ -94,8 +94,8 @@ void init(){
         }
     }
     for(int i = 0; i < 8; i++){
-        board[6][i] = std::make_unique<Pawn>(1);
-        board[1][i] = std::make_unique<Pawn>(0);
+        board[1][i] = std::make_unique<Pawn>(1);
+        board[6][i] = std::make_unique<Pawn>(0);
     }
 }
 

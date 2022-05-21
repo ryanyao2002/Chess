@@ -102,6 +102,8 @@ void init(){
     
     board[0][0] = std::make_unique<Rook>(1);
     board[7][0] = std::make_unique<Rook>(0);
+    board[0][7] = std::make_unique<Rook>(1);
+    board[7][7] = std::make_unique<Rook>(0);
 }
 
 int main(int argc, const char * argv[]) {

@@ -107,6 +107,9 @@ void init(){
     
     board[0][3] = std::make_unique<Queen>(1);
     board[7][3] = std::make_unique<Queen>(0);
+    
+    board[0][1] = std::make_unique<Knight>(1);
+    board[7][1] = std::make_unique<Knight>(0);
 }
 
 int main(int argc, const char * argv[]) {

@@ -11,7 +11,8 @@
 
 class Piece{
 public:
-    Piece(int side_in, bool king_in) : side(side_in), king(king_in){}
+    Piece(int side_in, bool king_in, int row_in, int col_in) : side(side_in), king(king_in),
+    row(row_in), col(col_in){}
     virtual int move(int, int) = 0;
     virtual void flood(std::vector<std::vector<int>>&board) = 0;
     bool isKing(){
@@ -26,12 +27,17 @@ public:
 protected:
     int side = 0;
     bool king = false;
+    int row = 0;
+    int col = 0;
 };
 
 class Pawn : public Piece{
 public:
     Pawn(int side_in) : Piece(side_in, false){}
     int move(int i, int j) override {
+        if(getside() == 1){
+            
+        }
         return 0;
     }
     void flood(std::vector<std::vector<int>>&board) override {}

@@ -33,7 +33,8 @@ protected:
 
 class Pawn : public Piece{
 public:
-    Pawn(int side_in) : Piece(side_in, false){}
+    Pawn(int side_in, int row_in, int col_in)
+        : Piece(side_in, false, row_in, col_in){}
     int move(int i, int j) override {
         if(getside() == 1){
             
@@ -63,7 +64,7 @@ public:
 
 class Bishop : public Piece{
 public:
-    Bishop(int side_in) : Piece(side_in, false){}
+    Bishop(int side_in, int row_in, int col_in) : Piece(side_in, false, row_in, col_in){}
     int move(int i, int j) override {
         return 0;
     }
@@ -100,10 +101,10 @@ void init(){
         }
     }
     for(int i = 0; i < 8; i++){
-        board[1][i] = std::make_unique<Pawn>(1);
-        board[6][i] = std::make_unique<Pawn>(0);
+        board[1][i] = std::make_unique<Pawn>(1, 1, i);
+        board[6][i] = std::make_unique<Pawn>(0, 6, i);
     }
-    board[0][4] = std::make_unique<King>(1);
+    board[0][4] = std::make_unique<King>(1, 0, 4);
     board[7][4] = std::make_unique<King>(0);
     
     board[0][0] = std::make_unique<Rook>(1);

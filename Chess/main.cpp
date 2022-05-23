@@ -46,7 +46,7 @@ public:
 
 class Knight: public Piece{
 public:
-    Knight(int side_in) : Piece(side_in, false){}
+    Knight(int side_in, int row_in, int col_in) : Piece(side_in, false, row_in, col_in){}
     int move(int i, int j) override {
         return 0;
     }

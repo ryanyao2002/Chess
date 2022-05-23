@@ -116,6 +116,9 @@ void init(){
     
     board[0][5] = std::make_unique<Bishop>(1);
     board[7][5] = std::make_unique<Bishop>(0);
+    
+    board[0][6] = std::make_unique<Knight>(1);
+    board[7][6] = std::make_unique<Knight>(0);
 }
 
 int main(int argc, const char * argv[]) {

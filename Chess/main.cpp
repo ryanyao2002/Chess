@@ -18,8 +18,11 @@ public:
     bool isKing(){
         return king;
     }
-    int getside(){
+    int getSide(){
         return side;
+    }
+    std::pair<int,int> getPosition(){
+        return {this->row, this->col};
     }
     virtual ~Piece(){
         
@@ -36,7 +39,7 @@ public:
     Pawn(int side_in, int row_in, int col_in)
         : Piece(side_in, false, row_in, col_in){}
     int move(int i, int j) override {
-        if(getside() == 1){
+        if(getSide() == 1){
             
         }
         return 0;
@@ -132,7 +135,7 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     int turn = 0;
     init();
-    std::cout<<board[6][0]->getside()<<std::endl;
+    std::cout<<board[6][0]->getSide()<<std::endl;
     std::cout << "New Chess Game!\n";
     return 0;
 }

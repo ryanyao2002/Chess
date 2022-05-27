@@ -110,8 +110,8 @@ void init(){
     board[0][4] = std::make_unique<King>(1, 0, 4);
     board[7][4] = std::make_unique<King>(0, 7, 4);
     
-    board[0][0] = std::make_unique<Rook>(1);
-    board[7][0] = std::make_unique<Rook>(0);
+    board[0][0] = std::make_unique<Rook>(1, 0, 0);
+    board[7][0] = std::make_unique<Rook>(0, 7, 0);
     board[0][7] = std::make_unique<Rook>(1);
     board[7][7] = std::make_unique<Rook>(0);
     

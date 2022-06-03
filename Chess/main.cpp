@@ -115,17 +115,17 @@ void init(){
     board[0][7] = std::make_unique<Rook>(1, 0, 7);
     board[7][7] = std::make_unique<Rook>(0, 7, 7);
     
-    board[0][3] = std::make_unique<Queen>(1);
-    board[7][3] = std::make_unique<Queen>(0);
+    board[0][3] = std::make_unique<Queen>(1, 0, 3);
+    board[7][3] = std::make_unique<Queen>(0, 7, 3);
     
-    board[0][1] = std::make_unique<Knight>(1);
-    board[7][1] = std::make_unique<Knight>(0);
+    board[0][1] = std::make_unique<Knight>(1, 0, 1);
+    board[7][1] = std::make_unique<Knight>(0, 7, 1);
     
-    board[0][2] = std::make_unique<Bishop>(1);
-    board[7][2] = std::make_unique<Bishop>(0);
+    board[0][2] = std::make_unique<Bishop>(1, 0, 2);
+    board[7][2] = std::make_unique<Bishop>(0, 7, 2);
     
-    board[0][5] = std::make_unique<Bishop>(1);
-    board[7][5] = std::make_unique<Bishop>(0);
+    board[0][5] = std::make_unique<Bishop>(1, 0, 5);
+    board[7][5] = std::make_unique<Bishop>(0, 7, 5);
     
     board[0][6] = std::make_unique<Knight>(1);
     board[7][6] = std::make_unique<Knight>(0);

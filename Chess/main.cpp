@@ -8,7 +8,10 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <assert.h>
 
+
+//No copy constructor so we will use move assignment
 class Piece{
 public:
     Piece(int side_in, bool king_in, int row_in, int col_in) : side(side_in), king(king_in),
@@ -24,6 +27,12 @@ public:
     std::pair<int,int> getPosition(){
         return {this->row, this->col};
     }
+    static bool inBounds(int row, int col){
+        if(row < 0 || row > 7 || col < 0 || col > 7){
+            return false;
+        }
+        return true;
+    }
     virtual ~Piece(){
         
     }
@@ -33,13 +42,21 @@ protected:
     int row = 0;
     int col = 0;
 };
-
+std::unique_ptr<Piece> board[8][8];
 class Pawn : public Piece{
 public:
     Pawn(int side_in, int row_in, int col_in)
         : Piece(side_in, false, row_in, col_in){}
+    
     int move(int i, int j) override {
         if(getSide() == 1){
+            if(i == row +1 && j == col){
+                board[i][j] = std::move(board[row][col]);
+                row++;
+                return 1;
+            }
+        }
+        else{
             
         }
         return 0;
@@ -87,12 +104,16 @@ class King : public Piece{
 public:
     King(int side_in, int row_in, int col_in) : Piece(side_in, false, row_in, col_in){}
     int move(int i, int j) override {
+        if(i -row <= 1 && j - col <= 1 && inBounds(i, j)
+           && (board[i][j] == nullptr || board[i][j]->getSide() != this->getSide())){
+            board[i][j] = std::move(board[row][col]);
+            return 1;
+        }
         return 0;
     }
     void flood(std::vector<std::vector<int>>&board) override {}
 };
 
-std::unique_ptr<Piece> board[8][8];
 
 
 //White is side 1, black is side 0
@@ -127,8 +148,8 @@ void init(){
     board[0][5] = std::make_unique<Bishop>(1, 0, 5);
     board[7][5] = std::make_unique<Bishop>(0, 7, 5);
     
-    board[0][6] = std::make_unique<Knight>(1);
-    board[7][6] = std::make_unique<Knight>(0);
+    board[0][6] = std::make_unique<Knight>(1, 0, 6);
+    board[7][6] = std::make_unique<Knight>(0, 7, 6);
 }
 
 int main(int argc, const char * argv[]) {
@@ -137,6 +158,9 @@ int main(int argc, const char * argv[]) {
     init();
     std::cout<<board[6][0]->getSide()<<std::endl;
     std::cout << "New Chess Game!\n";
+    std::cout << board[0][4]->move(1,4)<<std::endl;
+    std::cout<<board[1][4]->move(2,4);
+    std::cout << board[0][4]->move(1,4)<<std::endl;
     return 0;
 }
 

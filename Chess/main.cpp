@@ -97,7 +97,9 @@ public:
     int move(int i, int j) override {
         return 0;
     }
-    void flood(std::vector<std::vector<int>>&board) override {}
+    void flood(std::vector<std::vector<int>>&board) override {
+        
+    }
 };
 
 class King : public Piece{
@@ -111,7 +113,15 @@ public:
         }
         return 0;
     }
-    void flood(std::vector<std::vector<int>>&board) override {}
+    void flood(std::vector<std::vector<int>>&board) override {
+        for(int i = row-1; i <= row+1; i++){
+            for(int j = col -1; j <= col +1; j++){
+                if(inBounds(i, j)){
+                    board[i][j] = 1;
+                }
+            }
+        }
+    }
 };
 
 
